@@ -10,3 +10,8 @@
 .clear__fix {
   clear: both;
 }
+
+.active {
+  background-color: chartreuse;
+  transition: 0.2s ease-in-out;
+}

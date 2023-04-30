@@ -10,8 +10,25 @@ function init() {
     if (i==14 || i==28 || i==41 || i==53) {
       out+='<div class="clear__fix"></div>';
     }
-    out+='<div class="key__btn">'+keyboard[i]+'</div>';
+    out+='<div class="key__btn" data="'+ keyboard[i]+'">'+keyboard[i]+'</div>';
   }
   document.body.innerHTML=out;
 }
 init();
+
+document.onkeydown=function(event) {
+  document.querySelectorAll('.key__btn').forEach(function(element) {
+    element.classList.remove('active');
+  });
+  document.querySelector('.key__btn[data="' + event.key +'"]').classList.add('active');
+}
+
+document.querySelectorAll('.key__btn').forEach(function(element) {
+  element.onclick=function(event) {
+    document.querySelectorAll('.key__btn').forEach(function(element) {
+      element.classList.remove('active');
+    });
+    let code=this.getAttribute('data');
+    this.classList.add('active');
+  }
+});
