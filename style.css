@@ -1,3 +1,8 @@
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
 .key__btn {
   width: 50px;
   height: 50px;
@@ -5,6 +10,7 @@
   float: left;
   padding: 3px;
   margin: 3px;
+  border-radius: 5px;
 }
 
 .clear__fix {
@@ -14,4 +20,75 @@
 .active {
   background-color: chartreuse;
   transition: 0.2s ease-in-out;
+}
+
+[data="Backspace"] {
+  width: 90px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+[data="Tab"] {
+  width: 90px;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data="CapsLock"] {
+  width: 110px;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data="Enter"] {
+  width: 95px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+[data="Shift"] {
+  width: 135px;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data="ShiftRight"] {
+  width: 135px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+[data=" "] {
+  width: 348px;
+}
+
+[data="ArrowLeft"] {
+  height: 25px;
+  margin-top: 28px;
+}
+
+[data="ArrowRight"] {
+  height: 25px;
+  margin-top: 28px;
+}
+
+[data="Control"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data="Alt"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data="Meta"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
