@@ -1,5 +1,17 @@
+const heading = document.createElement('h1');
+heading.className = 'main-heading';
+heading.innerHTML = 'RSS Виртуальная клавиатура';
 const keyboard=['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ShiftRight', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
-const visualkey=['~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete', 'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'caps lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '"', 'return', 'shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<', '>', '/', 'shift', 'control', 'option', 'command', ' ', 'command', 'option', '←', '↑', '↓', '→'];
+const visualkey=['~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete',
+'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\',
+'caps lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '"', 'return',
+'shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<', '>', '/', 'shift',
+'control', 'option', 'command', ' ', 'command', 'option', '←', '↑', '↓', '→'];
+const visualkeyRu=[']', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete',
+'tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', "ё",
+'caps lock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'return',
+'shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '/', 'shift',
+'control', 'option', 'command', ' ', 'command', 'option', '←', '↑', '↓', '→'];
 document.onkeydown=function(event) {
   console.log(event.code);
 }
@@ -28,13 +40,26 @@ document.onkeydown=function(event) {
 document.onkeyup=function(event) {
   document.querySelector('.key__btn[data="' + event.code +'"]').classList.remove('active');
 };
+// onclick
+// document.querySelectorAll('.key__btn').forEach(function(element) {
+//   element.onmousedown=function(event) {
+//     document.querySelectorAll('.key__btn').forEach(function(element) {
+//       element.classList.remove('active');
+//     });
+//     let code=this.getAttribute('data');
+//     this.classList.add('active');
+//   }
+// });
 
 document.querySelectorAll('.key__btn').forEach(function(element) {
-  element.onclick=function(event) {
+  element.onmousedown=function(event) {
     document.querySelectorAll('.key__btn').forEach(function(element) {
       element.classList.remove('active');
     });
-    let code=this.getAttribute('data');
-    this.classList.add('active');
   }
-});
+  element.onmouseup=function(event) {
+    document.querySelectorAll('.key__btn').forEach(function(event) {
+      element.classList.add('active');
+    })
+  }
+})
