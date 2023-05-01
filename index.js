@@ -11,18 +11,32 @@ const visualkeyRu=[']', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '
 'shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '/', 'shift',
 'control', 'option', 'command', ' ', 'command', 'option', '←', '↑', '↓', '→'];
 
-function init() {
+function init(lang) {
   let out='';
-  for (let i=0; i<visualkey.length; i++) {
-    if (i==14 || i==28 || i==41 || i==53) {
-      out+='<div class="clear__fix"></div>';
+  if(lang=='EN') {
+    for (let i=0; i<visualkey.length; i++) {
+      if (i==14 || i==28 || i==41 || i==53) {
+        out+='<div class="clear__fix"></div>';
+      }
+      if (i==60) {
+        out+='<div class="container"><div class="key__btn" data="'+ keyboard[i]+'">'+visualkey[i]+'</div><div class="key__btn" data="'+ keyboard[i+1]+'">'+visualkey[i+1]+'</div></div>';
+        i++;
+        continue;
+      }
+      out+='<div class="key__btn" data="'+ keyboard[i]+'">'+visualkey[i]+'</div>';
     }
-    if (i==60) {
-      out+='<div class="container"><div class="key__btn" data="'+ keyboard[i]+'">'+visualkey[i]+'</div><div class="key__btn" data="'+ keyboard[i+1]+'">'+visualkey[i+1]+'</div></div>';
-      i++;
-      continue;
+  } else if (lang=='RU') {
+    for (let i=0; i<visualkeyRu.length; i++) {
+      if (i==14 || i==28 || i==41 || i==53) {
+        out+='<div class="clear__fix"></div>';
+      }
+      if (i==60) {
+        out+='<div class="container"><div class="key__btn" data="'+ keyboard[i]+'">'+visualkeyRu[i]+'</div><div class="key__btn" data="'+ keyboard[i+1]+'">'+visualkey[i+1]+'</div></div>';
+        i++;
+        continue;
+      }
+      out+='<div class="key__btn" data="'+ keyboard[i]+'">'+visualkeyRu[i]+'</div>';
     }
-    out+='<div class="key__btn" data="'+ keyboard[i]+'">'+visualkey[i]+'</div>';
   }
   const heading = document.createElement('h1');
   heading.className = 'main-heading';
@@ -35,17 +49,43 @@ function init() {
   const changlang=document.createElement('p');
   changlang.className='c-lang';
   changlang.innerHTML='Для переключения языка:  <span class="color-text"> левый control </span> + <span class="color-text">левый command </span>';
-  document.body.innerHTML=out;
+  const keybo=document.createElement('div');
+  keybo.className='keybo-h';
+  keybo.innerHTML=out;
   document.body.prepend(input);
   document.body.prepend(changlang);
   document.body.prepend(octext);
   document.body.prepend(heading);
+  document.body.append(keybo);
 }
-init();
 
 document.onkeydown=function(event) {
+  if (event.ctrlKey && event.metaKey) {
+    if (lang=='EN') {
+      lang='RU';
+      console.log(lang);
+      document.body.innerHTML='';
+      init(lang);
+    } else {
+      lang='EN'
+      console.log(lang);
+      document.body.innerHTML='';
+      init(lang);
+    }
+  }
   document.querySelector('.key__btn[data="' + event.code +'"]').classList.add('active');
 };
+
+function setLocalStorage() {
+  localStorage.setItem('lang', lang);
+}
+window.addEventListener('beforeunload', setLocalStorage);
+
+function letLocalStorage() {
+  lang = localStorage.getItem('lang') || 'EN';
+  init(lang);
+}
+window.addEventListener('load', letLocalStorage);
 
 document.onkeyup=function(event) {
   document.querySelector('.key__btn[data="' + event.code +'"]').classList.remove('active');
