@@ -62,7 +62,7 @@ body {
 }
 
 [data="Space"] {
-  width: 348px;
+  width: 370px;
 }
 
 [data="ArrowLeft"] {
@@ -75,20 +75,56 @@ body {
   margin-top: 28px;
 }
 
-[data="Control"] {
+[data="ControlLeft"] {
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-[data="Alt"] {
+[data="AltLeft"] {
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-[data="Meta"] {
+[data="MetaLeft"] {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  width: 70px;
+}
+
+[data="MetaRight"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 70px;
+}
+
+[data="AltRight"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data="ArrowLeft"],
+[data="ArrowUp"],
+[data="ArrowDown"],
+[data="ArrowRight"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[data="ArrowUp"],
+[data="ArrowDown"] {
+  height: 21px;
+  margin: 1px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  margin: 0;
 }
