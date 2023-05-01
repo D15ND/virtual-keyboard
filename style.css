@@ -125,6 +125,30 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 50px;
-  margin: 0;
+  float: left;
+}
+
+.main-heading {
+  display: flex;
+  justify-content: center;
+}
+
+.input-text {
+  display: flex;
+  justify-content: center;
+  width: 940px;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.oc-paragraph,
+.c-lang {
+  display: flex;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.color-text {
+  color: red;
 }
