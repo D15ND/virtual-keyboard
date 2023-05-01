@@ -57,9 +57,12 @@ function init(lang) {
   document.body.prepend(octext);
   document.body.prepend(heading);
   document.body.append(keybo);
-}
+  zov();
+};
 
 document.onkeydown=function(event) {
+  document.querySelector('.key__btn[data="' + event.code +'"]').classList.add('active');
+  console.log(document.querySelector('.key__btn[data="' + event.code +'"]'));
   if (event.ctrlKey && event.metaKey) {
     if (lang=='EN') {
       lang='RU';
@@ -73,7 +76,6 @@ document.onkeydown=function(event) {
       init(lang);
     }
   }
-  document.querySelector('.key__btn[data="' + event.code +'"]').classList.add('active');
 };
 
 function setLocalStorage() {
@@ -91,15 +93,17 @@ document.onkeyup=function(event) {
   document.querySelector('.key__btn[data="' + event.code +'"]').classList.remove('active');
 };
 
-document.querySelectorAll('.key__btn').forEach(function(element) {
-  element.onmousedown=function(event) {
-    document.querySelectorAll('.key__btn').forEach(function(element) {
-      element.classList.remove('active');
-    });
-  };
-  element.onmouseup=function(event) {
-    document.querySelectorAll('.key__btn').forEach(function(event) {
-      element.classList.add('active');
-    });
-  };
-});
+function zov() {
+  document.querySelectorAll('.key__btn').forEach(function(element) {
+    element.onmousedown=function(event) {
+      document.querySelectorAll('.key__btn').forEach(function(element) {
+        element.classList.remove('active');
+      });
+    };
+    element.onmouseup=function(event) {
+      document.querySelectorAll('.key__btn').forEach(function(event) {
+        element.classList.add('active');
+      });
+    };
+  });
+};
