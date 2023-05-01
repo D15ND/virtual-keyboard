@@ -1,0 +1,154 @@
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.key__btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  float: left;
+  padding: 3px;
+  margin: 3px;
+  border-radius: 5px;
+}
+
+.clear__fix {
+  clear: both;
+}
+
+.active {
+  background-color: chartreuse;
+  transition: 0.2s ease-in-out;
+}
+
+[data="Backspace"] {
+  width: 90px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+[data="Tab"] {
+  width: 90px;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data="CapsLock"] {
+  width: 110px;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data="Enter"] {
+  width: 95px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+[data="ShiftLeft"] {
+  width: 135px;
+  display: flex;
+  align-items: flex-end;
+}
+
+[data="ShiftRight"] {
+  width: 135px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+[data="Space"] {
+  width: 370px;
+}
+
+[data="ArrowLeft"] {
+  height: 25px;
+  margin-top: 28px;
+}
+
+[data="ArrowRight"] {
+  height: 25px;
+  margin-top: 28px;
+}
+
+[data="ControlLeft"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data="AltLeft"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data="MetaLeft"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 70px;
+}
+
+[data="MetaRight"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 70px;
+}
+
+[data="AltRight"] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data="ArrowLeft"],
+[data="ArrowUp"],
+[data="ArrowDown"],
+[data="ArrowRight"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[data="ArrowUp"],
+[data="ArrowDown"] {
+  height: 21px;
+  margin: 1px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+
+.main-heading {
+  display: flex;
+  justify-content: center;
+}
+
+.input-text {
+  display: flex;
+  justify-content: center;
+  width: 940px;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.oc-paragraph,
+.c-lang {
+  display: flex;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.color-text {
+  color: red;
+}
