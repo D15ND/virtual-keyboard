@@ -1,6 +1,3 @@
-const heading = document.createElement('h1');
-heading.className = 'main-heading';
-heading.innerHTML = 'RSS Виртуальная клавиатура';
 const keyboard=['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ShiftRight', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 const visualkey=['~', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete',
 'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\',
@@ -29,7 +26,22 @@ function init() {
     }
     out+='<div class="key__btn" data="'+ keyboard[i]+'">'+visualkey[i]+'</div>';
   }
+  const heading = document.createElement('h1');
+  heading.className = 'main-heading';
+  heading.innerHTML = 'RSS Виртуальная клавиатура';
+  const input = document.createElement('textarea');
+  input.className = 'input-text';
+  const octext=document.createElement('p');
+  octext.className='oc-paragraph';
+  octext.innerHTML='Клавиатура создана на macOS';
+  const changlang=document.createElement('p');
+  changlang.className='c-lang';
+  changlang.innerHTML='Для переключения языка:  <span class="color-text"> левый control </span> + <span class="color-text"> command </span>';
   document.body.innerHTML=out;
+  document.body.prepend(input);
+  document.body.prepend(changlang);
+  document.body.prepend(octext);
+  document.body.prepend(heading);
 }
 init();
 
@@ -56,10 +68,10 @@ document.querySelectorAll('.key__btn').forEach(function(element) {
     document.querySelectorAll('.key__btn').forEach(function(element) {
       element.classList.remove('active');
     });
-  }
+  };
   element.onmouseup=function(event) {
     document.querySelectorAll('.key__btn').forEach(function(event) {
       element.classList.add('active');
-    })
-  }
-})
+    });
+  };
+});
