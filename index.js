@@ -36,7 +36,7 @@ function init() {
   octext.innerHTML='Клавиатура создана на macOS';
   const changlang=document.createElement('p');
   changlang.className='c-lang';
-  changlang.innerHTML='Для переключения языка:  <span class="color-text"> левый control </span> + <span class="color-text"> command </span>';
+  changlang.innerHTML='Для переключения языка:  <span class="color-text"> левый control </span> + <span class="color-text">левый command </span>';
   document.body.innerHTML=out;
   document.body.prepend(input);
   document.body.prepend(changlang);
